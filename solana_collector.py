@@ -1,3 +1,5 @@
+import asyncio
+import random
 import solana
 from solana.rpc.async_api import AsyncClient
 from solders.transaction import Transaction
@@ -53,6 +55,7 @@ async def transfer_all_sol(private_keys, destination_wallet):
         
         except Exception as e:
             print(f"Error transferring from wallet {sender_pubkey}: {e}")
+        await asyncio.sleep(random.uniform(0, 10)) # Sleep random amount of second from 0 to 10.
 
 # Example usage
 async def main():
